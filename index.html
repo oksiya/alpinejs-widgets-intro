@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Center Counter</title>
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        [x-cloak] {
-            display: none;
-        }
-    </style>
-    <title>Counter Widget</title>
 </head>
-<body>
-    <div x-data="{ count : 0 } ">
-        <h1 class="text-5xl mb-4">Counter</h1>
-        <div class="counter text-5xl mb-4" x-text="count"></div>
-        <div>
-            <button class="bg-slate-700 text-white px-4 py-2 rounded-xl" @click="count++">+</button>
-            <button class="bg-slate-700 text-white px-4 py-2 rounded-xl" @click="count--">-</button>
+<body class="bg-pink-100 h-screen flex items-center justify-center rounded shadow">
+    <div x-data="{ count : 0 }" class="flex flex-col items-center justify-center">
+        <div class="bg-gray-400 p-48 shadow rounded text-center">
+            <h1 class="text-5xl mb-4">Counter</h1>
+            <div class="counter text-8xl mb-4" x-text="count"></div>
+            <div>
+                <button class="bg-green-500 text-white w-24 py-2 rounded-xl border-2 border-white" @click="count++">+</button>
+                <button class="bg-red-500 text-white w-24 py-2 rounded-xl border-2 border-white" @click="count--">-</button>
+            </div>            
         </div>
     </div>
 </body>
