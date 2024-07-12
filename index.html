@@ -9,14 +9,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-pink-100 h-screen flex items-center justify-center rounded shadow">
-    <div x-data="{ count : 0 }" class="flex flex-col items-center justify-center">
-        <div class="bg-gray-400 p-48 shadow rounded text-center">
+    <div x-data="{ count: 0, max: 10 }" class="flex flex-col items-center justify-center">
+        <div class="bg-gray-400 p-10 shadow rounded text-center">
             <h1 class="text-5xl mb-4">Counter</h1>
             <div class="counter text-8xl mb-4" x-text="count"></div>
             <div>
-                <button class="bg-green-500 text-white w-24 py-2 rounded-xl border-2 border-white" @click="count++">+</button>
-                <button class="bg-red-500 text-white w-24 py-2 rounded-xl border-2 border-white" @click="count--">-</button>
-            </div>            
+                <button 
+                    class="bg-green-500 text-white w-24 py-2 rounded-xl border-2 border-white" 
+                    @click="count < max ? count++ : count">
+                    +
+                </button>
+                <button 
+                    class="bg-red-500 text-white w-24 py-2 rounded-xl border-2 border-white" 
+                    @click="count > 0 ? count-- : count">
+                    -
+                </button>
+                <button 
+                    class="bg-blue-500 text-white w-24 py-2 rounded-xl border-2 border-white mt-2" 
+                    @click="count = 0">
+                    Reset
+                </button>
+            </div>
+            <div class="mt-4">
+                <label for="maxValue" class="block text-lg font-medium text-gray-700">Set Max Value:</label>
+                <input 
+                    type="number" 
+                    id="maxValue" 
+                    x-model.number="max" 
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
+            </div>
         </div>
     </div>
 </body>
